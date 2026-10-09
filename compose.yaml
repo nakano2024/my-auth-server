@@ -1,0 +1,23 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "8080:8080"
+      - "5005:5005"
+    environment:
+      SPRING_PROFILES_ACTIVE: local
+      # リモートデバッグ (IDE から localhost:5005 にアタッチ)
+      DEBUG_PORT: "5005"
+    volumes:
+      - .:/app
+      # ビルド成果物・Gradle キャッシュはホストと分離する
+      - gradle-cache:/root/.gradle
+      - project-gradle:/app/.gradle
+      - build-output:/app/build
+
+volumes:
+  gradle-cache:
+  project-gradle:
+  build-output:

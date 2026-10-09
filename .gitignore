@@ -1,0 +1,62 @@
+### Gradle ###
+.gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### Kotlin ###
+.kotlin/
+
+### Compiled output ###
+bin/
+out/
+target/
+*.class
+*.jar
+!gradle/wrapper/gradle-wrapper.jar
+*.war
+
+### IntelliJ IDEA ###
+.idea/
+*.iml
+*.ipr
+*.iws
+
+### Eclipse / VS Code Java (Red Hat) ###
+.apt_generated/
+.classpath
+.factorypath
+.project
+.settings/
+.springBeans
+.sts4-cache/
+
+### VS Code ###
+.vscode/
+
+### Logs ###
+*.log
+logs/
+hs_err_pid*.log
+replay_pid*.log
+
+### Environment / secrets ###
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.jks
+application-local.yml
+application-local.properties
+
+### Docker ###
+compose.override.yaml
+docker-compose.override.yml
+
+### OS ###
+.DS_Store
+Thumbs.db
+*~
+*.swp

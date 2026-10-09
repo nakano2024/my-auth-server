@@ -1,0 +1,16 @@
+# ローカル開発用 (ホットリロード付き)
+FROM eclipse-temurin:21-jdk
+
+WORKDIR /app
+
+# 依存関係を先に取得してレイヤーキャッシュを効かせる
+COPY gradlew settings.gradle.kts build.gradle.kts ./
+COPY gradle ./gradle
+RUN ./gradlew dependencies --no-daemon > /dev/null
+
+COPY scripts/dev-entrypoint.sh /usr/local/bin/dev-entrypoint.sh
+
+EXPOSE 8080 5005
+
+# ソースは compose でマウントする
+CMD ["dev-entrypoint.sh"]
